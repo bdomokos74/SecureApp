@@ -1,0 +1,28 @@
+
+spring:
+  config:
+    activate:
+      on-profile: ssl-test-clientauth
+server:
+  ssl:
+    key-store: ssl/server/keystore.p12
+    key-store-password: abc123
+    key-alias: server
+    client-auth: need
+    trust-store: ssl/server/truststore_both.p12
+    trust-store-password: abc123
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: ssl-test-no-clientauth
+server:
+  port: 9443
+  ssl:
+    key-store: ssl/server/keystore.p12
+    key-store-password: abc123
+    key-alias: server
+    trust-store: ssl/server/truststore_both.p12
+    trust-store-password: abc123
